@@ -1,7 +1,7 @@
 package com.exam.repository;
 
-import com.exam.model.role;
+import com.exam.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface RoleRepository extends JpaRepository<role,Long> {
+public interface RoleRepository extends JpaRepository<Role,Long> {
 }
