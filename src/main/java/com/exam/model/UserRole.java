@@ -7,7 +7,7 @@ import lombok.Data;
 @Entity
 public class UserRole {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private  Long userRoleId;
 
 

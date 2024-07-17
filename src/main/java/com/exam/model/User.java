@@ -1,5 +1,6 @@
 package com.exam.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -11,7 +12,7 @@ import java.util.Set;
 @Table(name = "users")
 public class User {
      @Id
-     @GeneratedValue
+     @GeneratedValue(strategy = GenerationType.AUTO)
      private  long id;
      private String username;
      private String password;
@@ -25,5 +26,6 @@ public class User {
 
      // user can have many roles so we will use set/list for the same
      @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "user")
+     @JsonIgnore
      private Set<UserRole> userRoles= new HashSet<>();
 }

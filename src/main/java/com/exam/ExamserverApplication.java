@@ -32,14 +32,15 @@ private UserService userService;
 		user.setEmail("abc@gmail.com");
 		user.setProfile("Hi.png");
 
-		Role role = new Role();
-		role.setRoleId(44L);
-		role.setRolename("ADMIN");
+		Role role1 = new Role();
+		role1.setRoleId(44L);
+		role1.setRoleName("ADMIN");
 
 
 		Set<UserRole> userRoleSet = new HashSet<>();
 		UserRole userRole= new UserRole();
-		userRole.setRole(role);
+		userRole.setRole(role1);
+		userRole.setUser(user);
 
 		userRoleSet.add(userRole);
 
