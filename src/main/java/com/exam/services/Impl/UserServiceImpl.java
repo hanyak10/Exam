@@ -1,5 +1,4 @@
 package com.exam.services.Impl;
-
 import com.exam.model.User;
 import com.exam.model.UserRole;
 import com.exam.repository.RoleRepository;
@@ -40,10 +39,6 @@ public class UserServiceImpl implements UserService {
         return this.userRepository.findByUsername(username);
     }
 
-    @Override
-    public User getUser(long id) {
-        return this.userRepository.findById(id).get();
-    }
 
     @Override
     public void deleteUser(Long userId) {
