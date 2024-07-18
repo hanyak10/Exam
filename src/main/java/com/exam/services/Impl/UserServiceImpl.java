@@ -30,9 +30,44 @@ public class UserServiceImpl implements UserService {
           for(UserRole ur:userRoles){
               roleRepository.save(ur.getRole());
           }
-         // user.getUserRoles().addAll(userRoles);
           local =this.userRepository.save(user);
       }
         return local;
+    }
+
+    @Override
+    public User getUser(String username) {
+        return this.userRepository.findByUsername(username);
+    }
+
+    @Override
+    public User getUser(long id) {
+        return this.userRepository.findById(id).get();
+    }
+
+    @Override
+    public void deleteUser(Long userId) {
+        this.userRepository.deleteById(userId);
+    }
+    @Override
+    public User updateUser(Long userId, User updatedUser) {
+        // Fetch the existing user entity from the database
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found with id: " + userId));
+
+        // Update the properties of the existing user entity
+        user.setUsername(updatedUser.getUsername());
+        user.setPassword(updatedUser.getPassword());
+        user.setFirstname(updatedUser.getFirstname());
+        user.setLastname(updatedUser.getLastname());
+        user.setEmail(updatedUser.getEmail());
+        user.setPhone(updatedUser.getPhone());
+        user.setEnabled(updatedUser.isEnabled());
+        user.setProfile(updatedUser.getProfile());
+        // Update user roles if needed
+        user.setUserRoles(updatedUser.getUserRoles());
+
+        // Save the updated user entity back to the database
+        return userRepository.save(user);
     }
 }
