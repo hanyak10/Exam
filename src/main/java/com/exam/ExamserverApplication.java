@@ -22,7 +22,7 @@ private UserService userService;
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("starting");
+		System.out.println("jata te do hi thekane teke de thane");
 //
 //		User user = new User();
 //		user.setFirstname("Harsh");
